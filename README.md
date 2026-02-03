@@ -1,4 +1,4 @@
-# donut_app_
+# DonutApp
 
 A new Flutter project.
 
