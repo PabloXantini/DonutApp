@@ -1,4 +1,5 @@
-import 'package:donut_app/utils/donut_tile.dart';
+//import 'package:donut_app/utils/donut_tile.dart';
+import 'package:donut_app/utils/menu_tile.dart';
 import 'package:flutter/material.dart';
 
 class DonutTab extends StatelessWidget {
@@ -11,28 +12,28 @@ class DonutTab extends StatelessWidget {
       'Chocolate',
       '100',
       Colors.brown,
-      "lib/images/chocolate_donut.png",
+      "lib/images/donut_chocolate.png",
       'Starbucks',
     ],
     [
       'Strawberry',
       '89',
       Colors.red,
-      "lib/images/strawberry_donut.png",
+      "lib/images/donut_strawberry.png",
       'Krispy Kreme',
     ],
     [
       'Ice Cream',
       '95',
       Colors.blue,
-      "lib/images/icecream_donut.png",
+      "lib/images/donut_icecream.png",
       "Dunkin' Donuts",
     ],
     [
       'Grape', 
       '70', 
       Colors.purple, 
-      "lib/images/grape_donut.png", 
+      "lib/images/donut_grape.png", 
       'Oxxo'
     ],
   ];
@@ -50,12 +51,12 @@ class DonutTab extends StatelessWidget {
       //Item quantity
       itemCount: donutOnSale.length,
       itemBuilder: (context, index) {
-        return DonutTile(
-          donutFlavor: donutOnSale[index][0],
-          donutPrice: donutOnSale[index][1],
-          donutColor: donutOnSale[index][2],
-          donutImagePath: donutOnSale[index][3],
-          donutProvider: donutOnSale[index][4],
+        return MenuTile(
+          flavorTitle: donutOnSale[index][0],
+          price: donutOnSale[index][1],
+          provider: donutOnSale[index][4],
+          imagePath: donutOnSale[index][3],
+          tileColor: donutOnSale[index][2],
         );
       }
     );
