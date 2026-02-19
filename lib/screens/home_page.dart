@@ -77,8 +77,54 @@ class _HomePageState extends State<HomePage> {
                   PizzaTab()
                 ]
               )
-            )
+            ),
             //4. Cart
+            Container(
+              color: Colors.white,
+              padding: EdgeInsets.all(18),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Padding(
+                    padding: EdgeInsets.only(left: 16),
+                    child: Column(
+                      //Align to left horizontly
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          '2 items | \$45', 
+                          style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold
+                          ),
+                        ),
+                        Text(
+                          'Delivery Charges Included',
+                          style: TextStyle(
+                            fontSize: 14,
+                            color: Colors.grey[800]
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                  ElevatedButton(
+                    onPressed: (){},
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.pink[300]
+                    ), 
+                    child: Text(
+                      'View Cart',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    )
+                  )
+                ],
+              ),
+            )
           ],
         ),    
       )
