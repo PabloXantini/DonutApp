@@ -45,7 +45,7 @@ class DonutTab extends StatelessWidget {
         //Column quantity
         crossAxisCount: 2,
         //Aspect ratio
-        childAspectRatio: 1/1.6
+        childAspectRatio: 1/1.5
       ),
       //Item quantity
       itemCount: donutOnSale.length,
