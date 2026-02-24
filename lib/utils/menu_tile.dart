@@ -1,23 +1,26 @@
+import 'package:donut_app/components/product.dart';
+import 'package:donut_app/controllers/cart_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class MenuTile extends StatelessWidget {
-  final String flavorTitle;
-  final String price;
-  final String provider;
-  final String imagePath;
+  //final String flavorTitle;
+  //final String price;
+  //final String provider;
+  //final String imagePath;
   final dynamic tileColor;
+  
+  final Product product;
 
   const MenuTile({
     super.key,
-    required this.flavorTitle,
-    required this.price,
-    required this.provider,
-    required this.imagePath,
+    required this.product,
     this.tileColor,
   });
 
   @override
   Widget build(BuildContext context) {
+      final controller = Provider.of<CartController>(context);
       return Padding(
       padding: const EdgeInsets.all(12.0),
       child: Container(
@@ -46,7 +49,7 @@ class MenuTile extends StatelessWidget {
                     )
                   ),
                   child: Text(
-                    '\$$price',
+                    '\$${product.price}',
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 18,
@@ -56,17 +59,17 @@ class MenuTile extends StatelessWidget {
                 )
               ],
             ),
-            //Donut Image
+            //Image
             Padding(
               padding: const EdgeInsetsGeometry.symmetric(
                 vertical: 12,
                 horizontal: 24
               ),
-              child: Image.asset(imagePath),
+              child: Image.asset(product.imagePath),
             ),
-            //Donut name text
+            //Title section
             Text(
-              flavorTitle,
+              product.flavorTitle,
               style: TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 20 
@@ -76,7 +79,7 @@ class MenuTile extends StatelessWidget {
             const SizedBox(height: 4),
             //Provider name section
             Text(
-              provider,
+              product.provider,
               style: TextStyle(
                 color: Colors.grey[600],
                 fontSize: 16
@@ -84,7 +87,7 @@ class MenuTile extends StatelessWidget {
             ),
             //Functionalities
             Padding(
-              padding: const EdgeInsets.all(12.0),
+              padding: const EdgeInsets.symmetric(horizontal: 10.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -92,12 +95,21 @@ class MenuTile extends StatelessWidget {
                     Icons.favorite_border,
                     color: Colors.pink[400],
                   ),
-                  Text(
-                    "Add",
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 16,
-                      decoration: TextDecoration.underline
+                  TextButton(
+                    onPressed: ()=>{
+                      controller.add(product)
+                    },
+                    style: TextButton.styleFrom(
+                      padding: const EdgeInsets.all(2.0)
+                    ),
+                    child: Text(
+                      "Add",
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16,
+                        decoration: TextDecoration.underline
+                      ),
                     ),
                   )
                 ],

@@ -1,3 +1,4 @@
+import 'package:donut_app/components/product.dart';
 import 'package:donut_app/utils/menu_tile.dart';
 import 'package:flutter/material.dart';
 
@@ -38,15 +39,17 @@ class SmoothieTab extends StatelessWidget {
     return GridView.builder(
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
-        childAspectRatio: 1/1.5
+        childAspectRatio: 2/3
       ),
       itemCount: smoothiesOnSale.length, 
       itemBuilder: (context, index){
         return MenuTile(
-          flavorTitle: smoothiesOnSale[index][0], 
-          price: smoothiesOnSale[index][1], 
-          provider: smoothiesOnSale[index][2], 
-          imagePath: smoothiesOnSale[index][3],
+          product: Product(
+            flavorTitle: smoothiesOnSale[index][0], 
+            price: smoothiesOnSale[index][1], 
+            provider: smoothiesOnSale[index][2], 
+            imagePath: smoothiesOnSale[index][3]
+          ),
           tileColor: smoothiesOnSale[index][4],
         );
       }

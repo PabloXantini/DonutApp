@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-class MyTab extends StatelessWidget {
+class UpperTab extends StatelessWidget {
   final String iconName;
   final String iconPath;
   
-  const MyTab({
+  const UpperTab({
     super.key,
     required this.iconName,
     required this.iconPath

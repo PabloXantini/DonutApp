@@ -1,3 +1,4 @@
+import 'package:donut_app/components/product.dart';
 import 'package:donut_app/utils/menu_tile.dart';
 import 'package:flutter/material.dart';
 
@@ -40,15 +41,17 @@ class PizzaTab extends StatelessWidget {
     return GridView.builder(
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
-        childAspectRatio: 1/1.5
+        childAspectRatio: 2/3
       ),
       itemCount: pizzasOnSale.length, 
       itemBuilder: (context, index){
         return MenuTile(
-          flavorTitle: pizzasOnSale[index][0], 
-          price: pizzasOnSale[index][1], 
-          provider: pizzasOnSale[index][2], 
-          imagePath: pizzasOnSale[index][3],
+          product: Product(
+            flavorTitle: pizzasOnSale[index][0], 
+            price: pizzasOnSale[index][1], 
+            provider: pizzasOnSale[index][2], 
+            imagePath: pizzasOnSale[index][3]
+          ),
           tileColor: pizzasOnSale[index][4],
         );
       }

@@ -1,9 +1,10 @@
+import 'package:donut_app/components/cart.dart';
 import 'package:donut_app/tab/burger_tab.dart';
 import 'package:donut_app/tab/donut_tab.dart';
 import 'package:donut_app/tab/pancake_tab.dart';
 import 'package:donut_app/tab/pizza_tab.dart';
 import 'package:donut_app/tab/smoothie_tab.dart';
-import 'package:donut_app/utils/my_tab.dart';
+import 'package:donut_app/utils/upper_tab.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -14,18 +15,18 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  late TabController _tabController;
+  //late TabController _tabController;
   List<Widget> myTabs = [
     //donut tab
-    const MyTab(iconName: 'Donut', iconPath: 'lib/icons/donut.png'),
+    const UpperTab(iconName: 'Donut', iconPath: 'lib/icons/donut.png'),
     //burger tab
-    const MyTab(iconName: 'Burger', iconPath: 'lib/icons/burger.png'),
+    const UpperTab(iconName: 'Burger', iconPath: 'lib/icons/burger.png'),
     //smoothie tab
-    const MyTab(iconName: 'Smoothie', iconPath: 'lib/icons/smoothie.png'),
+    const UpperTab(iconName: 'Smoothie', iconPath: 'lib/icons/smoothie.png'),
     //pancake tab
-    const MyTab(iconName: 'Pancake', iconPath: 'lib/icons/pancakes.png'),
+    const UpperTab(iconName: 'Pancake', iconPath: 'lib/icons/pancakes.png'),
     //pizza tab
-    const MyTab(iconName: 'Pizza', iconPath: 'lib/icons/pizza.png')
+    const UpperTab(iconName: 'Pizza', iconPath: 'lib/icons/pizza.png')
   ];
   @override
   Widget build(BuildContext context) {
@@ -43,8 +44,8 @@ class _HomePageState extends State<HomePage> {
             ],
           ),
         body: Column(
-          //1. Main text
           children: [
+            //1. Main text
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Row(
@@ -79,55 +80,10 @@ class _HomePageState extends State<HomePage> {
               )
             ),
             //4. Cart
-            Container(
-              color: Colors.white,
-              padding: EdgeInsets.all(18),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Padding(
-                    padding: EdgeInsets.only(left: 16),
-                    child: Column(
-                      //Align to left horizontly
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          '2 items | \$45', 
-                          style: TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold
-                          ),
-                        ),
-                        Text(
-                          'Delivery Charges Included',
-                          style: TextStyle(
-                            fontSize: 14,
-                            color: Colors.grey[800]
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                  ElevatedButton(
-                    onPressed: (){},
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.pink[300]
-                    ), 
-                    child: Text(
-                      'View Cart',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    )
-                  )
-                ],
-              ),
-            )
+            Cart()
           ],
         ),    
-      )
+      ),
     );
   }
 }
