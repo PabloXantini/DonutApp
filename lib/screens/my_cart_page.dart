@@ -1,5 +1,5 @@
 import 'package:donut_app/controllers/cart_controller.dart';
-import 'package:donut_app/utils/menu_tile.dart';
+import 'package:donut_app/components/cart_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -25,20 +25,29 @@ class _MyCartState extends State<MyCart> {
             )
           ],
         ),
-      body: Padding(
-        padding: const EdgeInsets.all(30),
-        child: GridView.builder(
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 1, // mínimo 1
-            childAspectRatio: 2/3
+      body: controller.isEmpty ?
+        Center(
+          child: Text(
+            'You cart is empty',
+            style: TextStyle(
+              fontSize: 18,
+              color: Colors.grey[600]
+            ),
           ),
-          itemCount: controller.products.length,
-          itemBuilder: (context, index) {
-            final product = controller.products[index];
-            return MenuTile(product: product, tileColor: Colors.green,);
-          },
-        ),
-      ),
+        ) :
+        Column(
+          children: [
+            Expanded(
+              child: ListView.builder(
+                itemCount: controller.products.length,
+                itemBuilder: (context, index){
+                  final item = controller.products[index];
+                  return CartTile(item: item);
+                }
+              )
+            )
+          ],
+        )
     );
   }
 }

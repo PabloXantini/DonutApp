@@ -1,6 +1,6 @@
 //import 'package:donut_app/utils/donut_tile.dart';
-import 'package:donut_app/components/product.dart';
-import 'package:donut_app/utils/menu_tile.dart';
+import 'package:donut_app/models/product.dart';
+import 'package:donut_app/components/menu_tile.dart';
 import 'package:flutter/material.dart';
 
 class DonutTab extends StatelessWidget {

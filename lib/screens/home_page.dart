@@ -4,7 +4,7 @@ import 'package:donut_app/tab/donut_tab.dart';
 import 'package:donut_app/tab/pancake_tab.dart';
 import 'package:donut_app/tab/pizza_tab.dart';
 import 'package:donut_app/tab/smoothie_tab.dart';
-import 'package:donut_app/utils/upper_tab.dart';
+import 'package:donut_app/components/upper_tab.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {

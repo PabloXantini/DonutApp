@@ -1,5 +1,5 @@
 import 'package:donut_app/controllers/cart_controller.dart';
-import 'package:donut_app/screens/my_cart.dart';
+import 'package:donut_app/screens/my_cart_page.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -35,7 +35,7 @@ class _CartState extends State<Cart> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  '${controller.totalItems} items | \$${controller.getTotalPrice()}', 
+                  '${controller.totalItems} items | \$${controller.getTotalPrice().toStringAsFixed(2)}', 
                   style: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.bold

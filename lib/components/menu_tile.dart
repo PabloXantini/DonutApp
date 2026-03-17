@@ -1,15 +1,10 @@
-import 'package:donut_app/components/product.dart';
+import 'package:donut_app/models/product.dart';
 import 'package:donut_app/controllers/cart_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class MenuTile extends StatelessWidget {
-  //final String flavorTitle;
-  //final String price;
-  //final String provider;
-  //final String imagePath;
   final dynamic tileColor;
-  
   final Product product;
 
   const MenuTile({
